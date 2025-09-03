@@ -1,0 +1,26 @@
+
+# Core dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+anthropic>=0.25.0
+requests==2.31.0
+beautifulsoup4==4.12.2
+
+# HTML templating
+jinja2==3.1.2
+
+# Environment management
+python-dotenv==1.0.0
+python-multipart==0.0.6
+
+# Data processing
+pandas==2.1.4
+
+# Async support
+aiofiles==23.2.0
+
+# Image processing
+Pillow==10.1.0
+
+# Additional for Fly.io
+gunicorn==21.2.0

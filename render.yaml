@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: replicon-ai-support
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python support_system.py
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.20
+      - key: PORT
+        fromService:
+          type: web
+          name: replicon-ai-support
+          property: port
