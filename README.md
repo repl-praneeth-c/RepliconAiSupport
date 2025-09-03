@@ -159,7 +159,7 @@ Edit `config.py` to customize:
 ## 🚦 Usage
 
 1. **First Run**: The system will offer to scrape documentation
-2. **Web Interface**: Visit http://localhost:8000
+2. **Web Interface**: Visit https://repliconaisupport-5.onrender.com/
 3. **Ask Questions**: Type natural language questions about Replicon
 4. **Get AI Responses**: Receive intelligent, contextual answers
 
