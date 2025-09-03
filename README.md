@@ -1,3 +1,82 @@
+```mermaid
+flowchart TD
+
+    A[User Submits Query] --> B{System Initialization}
+    B --> C[Parse Support Query]
+    C --> D[Extract Query Context]
+    D --> E{Knowledge Base Available?}
+    
+    E -->|Yes| F[Search Relevant Documents]
+    E -->|No| G[Handle Out-of-Scope]
+    
+    F --> H[Get Category Hint]
+    H --> I[Calculate Document Relevance Scores]
+    I --> J{Found Relevant Docs?}
+    
+    J -->|No| G
+    J -->|Yes| K[Parse User Intent for Images]
+    
+    K --> L{Visual Content Needed?}
+    L -->|No| M[Skip Image Retrieval]
+    L -->|Yes| N[Determine Intent Type]
+    
+    N --> O{Intent Type?}
+    O -->|project_setup| P[Get Project Setup Images]
+    O -->|timesheet| Q[Get Timesheet Images]
+    O -->|mobile| R[Get Mobile App Images]
+    O -->|navigation| S[Get Navigation Images]
+    O -->|general_visual| T[Get General Visual Images]
+    
+    P --> U[Calculate Image Relevance Scores]
+    Q --> U
+    R --> U
+    S --> U
+    T --> U
+    M --> V{Claude API Available?}
+    U --> V
+    
+    V -->|Yes| W[Build Context for Claude]
+    V -->|No| X[Generate Fallback Response]
+    
+    W --> Y[Create System Prompt]
+    Y --> Z[Create User Message]
+    Z --> AA[Send to Claude API]
+    AA --> BB{API Response Success?}
+    
+    BB -->|No| X
+    BB -->|Yes| CC[Process Claude Response]
+    
+    CC --> DD{Images Available?}
+    DD -->|Yes| EE[Enhance Response with Image Info]
+    DD -->|No| FF[Keep Response As-Is]
+    
+    EE --> GG[Assess Response Confidence]
+    FF --> GG
+    X --> HH[Assess Fallback Confidence]
+    
+    GG --> II[Check Escalation Needed]
+    HH --> II
+    II --> JJ[Extract Suggested Actions]
+    JJ --> KK[Build Support Response Object]
+    
+    KK --> LL[Return JSON Response]
+    LL --> MM[Render in Web Interface]
+    
+    G --> NN[Generate Out-of-Scope Response]
+    NN --> LL
+    
+    style A fill:#e1f5fe
+    style LL fill:#c8e6c9
+    style G fill:#ffcdd2
+    style X fill:#fff3e0
+    style AA fill:#f3e5f5
+```
+
+
+
+
+
+
 # Replicon AI Support System
 
 An AI-powered support system that scrapes Replicon's documentation and provides intelligent responses using Claude AI.
@@ -126,3 +205,6 @@ MIT License - see LICENSE file for details
 ---
 
 Built with ❤️ using FastAPI, Claude AI, and modern web technologies.
+
+
+
